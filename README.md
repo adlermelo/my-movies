@@ -155,7 +155,8 @@ Acessar lista de favoritos e filtrar por gênero
 
 🏠 Tela Inicial
 
-![Tela Inicial](./screenshots/tela-inicial.png)
+![Tela Inicial](https://raw.githubusercontent.com/adlermelo/my-movies/main/screenshots/tela-inicial.png)
+
 
 Exibe três categorias de filmes: mais populares, melhor avaliados e lançamentos.
 
