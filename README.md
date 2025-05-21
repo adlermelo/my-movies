@@ -1,191 +1,128 @@
-# 🎬 Teste Técnico - Desenvolvedor(a) Full Stack Júnior
+# 🎬 Catálogo de Filmes - Full Stack (Laravel + Vue 3)
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Aplicação full stack de **Catálogo de Filmes**, desenvolvida com Laravel (Sail), Vue 3 e Docker. O sistema consome a API pública do The Movie Database (TMDB), permitindo busca, visualização e gerenciamento de uma lista local de filmes favoritos.
 
----
+![Demonstração da Aplicação](./screenshots/demo.gif)
 
-## 📌 Objetivo
+## 📌 Funcionalidades
 
-- Buscar filmes pelo nome utilizando a API do TMDB  
-- Exibir informações detalhadas dos filmes  
-- Adicionar e remover filmes dos favoritos  
-- Listar os filmes favoritos com filtro por gênero  
+- 🔍 Busca de filmes pelo nome utilizando a API do TMDB  
+- 🎬 Exibição de informações detalhadas dos filmes  
+- ⭐ Adicionar/remover filmes dos favoritos  
+- 🧩 Listar filmes favoritos com filtro por gênero  
+- 📱 Design responsivo  
 
----
+## ⚙ Tecnologias
 
-## ⚙ Tecnologias Utilizadas
+### Backend
+- Laravel 10
+- Laravel Sail (Docker)
+- MySQL
 
-- **Backend:** Laravel 10 com Laravel Sail  
-- **Frontend:** Vue 3 (SPA)  
-- **Banco de Dados:** MySQL  
-- **Ambiente:** Docker / Docker Compose  
-- **Versionamento:** Git (GitHub)  
+### Frontend
+- Vue 3 (Composition API)
+- Pinia (State Management)
+- Axios (HTTP Client)
+- Tailwind CSS
 
----
+### Infraestrutura
+- Docker
+- Nginx
+- Composer
+- Node.js
 
-## 🐳 Como rodar o projeto com Docker
+## 🚀 Como Executar o Projeto
 
-### Requisitos
+### Pré-requisitos
+- Docker e Docker Compose instalados
+- Chave de API do TMDB ([obter aqui](https://www.themoviedb.org/settings/api))
 
-- Docker + Docker Compose instalados na máquina
+### Instalação
 
-### Clonando o repositório
-
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-Backend (Laravel Sail)
-Copie o .env:
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/catalogo-filmes.git
+   cd catalogo-filmes
+Configure o backend:
 
 bash
-Copiar
-Editar
 cp .env.example .env
-Instale as dependências do Laravel:
-
-bash
-Copiar
-Editar
 composer install
-Suba o ambiente:
-
-bash
-Copiar
-Editar
 ./vendor/bin/sail up -d
-Gere a chave da aplicação:
-
-bash
-Copiar
-Editar
 ./vendor/bin/sail artisan key:generate
-Rode as migrations:
-
-bash
-Copiar
-Editar
 ./vendor/bin/sail artisan migrate
-
-🖥️ Frontend (Vue.js)
-
-Acesse a pasta do frontend:
+Configure o frontend:
 
 bash
-Copiar
-Editar
 cd frontend
-Instale as dependências:
-
-bash
-Copiar
-Editar
 npm install
-Inicie o servidor de desenvolvimento:
-
-bash
-Copiar
-Editar
 docker build -t vue-frontend .
-
 docker run -p 8080:80 vue-frontend
+Acesse a aplicação:
 
-O frontend estará disponível em http://localhost:8080/
+Frontend: http://localhost:8080
 
-🔑 Chave da API TMDB
+API: http://localhost:80
 
-Você precisa de uma API Key do The Movie Database (TMDB):
+📚 Estrutura do Projeto
+.
+├── backend/               # Laravel
+│   ├── app/
+│   ├── config/
+│   ├── database/
+│   └── routes/
+├── frontend/              # Vue 3
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   └── views/
+│   └── package.json
+├── docker-compose.yml
+└── README.md
+## 📸 Screenshots
 
-Crie uma conta gratuita em: https://www.themoviedb.org/
+### 🏠 Tela Inicial
+![Tela Inicial](./screenshots/tela-inicial.png)
+*Filmes populares, melhores avaliados e lançamentos*
 
-Acesse seu perfil → Settings > API
+### 🔍 Busca de Filmes
+![Busca de Filmes](./screenshots/busca.png)
+*Resultados da busca por filmes*
 
-Gere uma API Key v3
+### 🎬 Detalhes do Filme
+![Detalhes do Filme](./screenshots/modal-filme.png)
+*Modal com informações completas*
 
-Adicione sua chave no arquivo .env do Laravel:
+### ⭐ Lista de Favoritos
+![Lista de Favoritos](./screenshots/favoritos.png)
+*Filmes favoritados com filtro por gênero*
 
-env
-Copiar
-Editar
-TMDB_API_KEY=sua_chave_aqui
+### ⭐ Detalhes de Favoritos
+![Detalhes de Favoritos](./screenshots/detalhes-favorito.png)
+*Detalhes favoritados com filtro por gênero*
 
-🧱 Estrutura do Projeto
+📝 Documentação da API
+Rotas disponíveis:
+GET /api/movies/search?query={nome} - Busca filmes
 
-Backend (Laravel)
-Rotas: routes/api.php
+POST /api/favorites - Adiciona favorito
 
-Controller: app/Http/Controllers/API/MovieController.php
+GET /api/favorites - Lista favoritos
 
-Model: app/Models/FavoriteMovie.php
+DELETE /api/favorites/{id} - Remove favorito
 
-Frontend (Vue)
-Página inicial: vue-frontend/src/views/HomeView.vue
+Consulte a documentação completa da API TMDB
 
-Busca: vue-frontend/src/App.vue
+🤝 Como Contribuir
+Faça um fork do projeto
 
-Favoritos: vue-frontend/src/views/FavoritesView.vue
+Crie uma branch (git checkout -b feature/AmazingFeature)
 
-Cards e modal: vue-frontend/src/components/MovieCard.vue, vue-frontend/src/components/FavoriteMovieCard.vue
+Commit suas mudanças (git commit -m 'Add some AmazingFeature')
 
-API: vue-frontend/src/api/index.js, vue-frontend/src/api/tmdb.js
+Push para a branch (git push origin feature/AmazingFeature)
 
-Config NGINX: vue-frontend/nginx.conf
-
-🧪 Testando a Aplicação
-
-Backend
-API de busca de filmes:
-
-http
-Copiar
-Editar
-GET http://localhost/api/movies/search?query=batman
-Frontend
-Acesse via navegador: http://localhost:8080
-
-Funcionalidades a testar:
-
-Buscar filmes pelo nome
-
-Ver detalhes do filme via modal
-
-Adicionar/remover favoritos
-
-Acessar lista de favoritos e filtrar por gênero
-
-
-🏠 Tela Inicial
-
-| **Tela Inicial** | ![Tela Inicial](./screenshots/tela-inicial.png) |
-Exibe três categorias de filmes: mais populares, melhor avaliados e lançamentos.
-
-
-🔍 Busca de Filmes
-
-| **Busca de Filmes** | ![Busca de Filmes](./screenshots/busca.png) |
-A barra de busca retorna filmes com base no nome digitado.
-
-
-🎬 Detalhes do Filme
-
-| **Detalhes do Filme** | ![Detalhes do Filme](./screenshots/modal-filme.png) |
-Modal com sinopse, nota, botão de favoritar e pôster.
-
-
-⭐ Favoritos
-
-| **Favoritos** | ![Favoritos](./screenshots/favoritos.png) |
-Lista local de filmes favoritos com filtro por gênero.
-
-
-📄 Detalhes do Filme Favorito
-
-| **Detalhes Favorito** | ![Detalhes Favorito](./screenshots/detalhes-favorito.png) |
-Visualização detalhada dentro da aba de favoritos.
-
-
-📚 Documentação da API TMDB
-Acesse a documentação oficial da API em:
-👉 https://developer.themoviedb.org/reference/intro/getting-started
-
-👨‍💻 Autor(a)
-Este projeto foi desenvolvido como parte de um teste técnico para vaga de Desenvolvedor(a) Full Stack Júnior.
+Abra um Pull Request
