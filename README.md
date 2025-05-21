@@ -154,22 +154,37 @@ Acessar lista de favoritos e filtrar por gênero
 
 
 🏠 Tela Inicial
+
+![Tela Inicial](./screenshots/tela-inicial.png)
+
 Exibe três categorias de filmes: mais populares, melhor avaliados e lançamentos.
 
 
 🔍 Busca de Filmes
+
+![Busca de Filmes](./screenshots/busca.png)
+
 A barra de busca retorna filmes com base no nome digitado.
 
 
 🎬 Detalhes do Filme
+
+![Detalhes do Filme](./screenshots/modal-filme.png)
+
 Modal com sinopse, nota, botão de favoritar e pôster.
 
 
 ⭐ Favoritos
+
+![Favoritos](./screenshots/favoritos.png)
+
 Lista local de filmes favoritos com filtro por gênero.
 
 
 📄 Detalhes do Filme Favorito
+
+![Detalhes Favorito](./screenshots/detalhes-favorito.png)
+
 Visualização detalhada dentro da aba de favoritos.
 
 
